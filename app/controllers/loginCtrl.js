@@ -3,11 +3,9 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
 
 
     //private variables
-    $scope.currentUid;
-
-    
-    $scope.loginEmail;
-    $scope.loginPassword;
+    $scope.currentUid = '';
+    $scope.loginEmail = '';
+    $scope.loginPassword = '';
 
     var ref = new Firebase("https://justpick.firebaseio.com/users");
 
@@ -21,7 +19,7 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
         ref.createUser({
           email    : $scope.loginEmail,
           password : $scope.loginPassword
-        }, 
+        },
         function(error, userData) {
           if (error) {
             console.log("Error creating user:", error);
@@ -33,13 +31,13 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
               "lastName": "",
               "location": "",
             });
-          } 
+          }
         });
       }  else {
       console.log("you gotta enter info");
       }
     };
-    
+
     $scope.loginUser = function(){
 
 
@@ -55,10 +53,8 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
           $("#mainPage").fadeIn("slow");
           getSet.setUid(authData.uid);
           console.log("general vars uid ", getSet.getUid());
-
-          }
-        });
+          window.location = '/#main'
+        }
+      });
     };
   }]);
-
-

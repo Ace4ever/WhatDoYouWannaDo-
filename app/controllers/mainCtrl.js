@@ -24,25 +24,25 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet",
 					'dining',
 					'mini golf',
 					'bowling',
-				    'shopping', 
-				    'movie', 
-				    'skating',
-				    'swimming',
-				    'skiing',
-				    'hiking',
-				    'ice skating',
-				    'ping pong',
-				    'shoot hoops',
-				    'kareoke',
-				    'fishing'
+			    'shopping',
+			    'movie',
+			    'skating',
+			    'swimming',
+			    'skiing',
+			    'hiking',
+			    'ice skating',
+			    'ping pong',
+			    'shoot hoops',
+			    'kareoke',
+			    'fishing'
 			  ];
 
 
 			  $scope.user = {
 			  	roles: []
-			  }			 
+			  };
 
-		})
+		});
 
 		// function that randomly generates result from usere's selected interests and displays result modal
 
@@ -51,12 +51,12 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet",
 				console.log($scope.user.roles);
 			$("#resultModal").modal();
 
-			$scope.selected = $scope.user.roles[Math.floor(Math.random() * $scope.user.roles.length)]
-			console.log($scope.selected)
+			$scope.selected = $scope.user.roles[Math.floor(Math.random() * $scope.user.roles.length)];
+			console.log($scope.selected);
 		}else {
 			console.log("Please make some selections");
+		}
 		};
-		}; 
 
 		// function that saves user's interests in FB and notifies them of what they've saved in modal
 
@@ -68,23 +68,22 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet",
 			console.log("thisUsersInterests", thisUsersInterests);
 			userInterestsRef.child("/"+currentUserId).set({
 				"myInterests": thisUsersInterests
-				 
-			})
+
+			});
 
 			console.log("THIS HAS BEEN SAVED!", currentUserId);
-		}
+		};
 
 		$scope.findFriends = function() {
 			$("#searchFriends").modal();
 
-		}
+		};
 
 		$scope.searchZip = function() {
 			var testing = location.searchArea();
 			testing.then(function(response){
 
-			})
-		}
+			});
+		};
 
 	}]);
-

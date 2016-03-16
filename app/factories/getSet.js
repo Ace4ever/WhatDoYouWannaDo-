@@ -1,6 +1,6 @@
 app.factory("getSet", ["$q", "$http",
   function($q, $http) {
-    
+
   	var userUid;
 
   	return {
@@ -11,7 +11,7 @@ app.factory("getSet", ["$q", "$http",
       setUid : function(value){
         userUid = value;
       },
-  
-  	}
+
+  	};
 
   }]);

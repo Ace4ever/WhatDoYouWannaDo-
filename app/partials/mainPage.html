@@ -10,7 +10,7 @@
         <div class="modal-body">
           <label>Search For Local Activities:</label>
           <input type="text" name="zipCode" ng-model="zipCode" id="userZip" placeholder="Please Enter Your Zip Code">
- 
+
         <button type="button" class="btn btn-info" ng-click="searchZip()">
         Search
         </button>
@@ -26,12 +26,12 @@
   </div>
 
   <h1>Make Up Your Damn Mind!</h1>
-	
+
 	<a id="logout" href="#/splash">Logout</a>
 	<a id="profile" href="#/profile">Profile</a>
   <h3>Please select some interests:</h3>
 
-	<div id="checkList"> 
+	<div id="checkList">
   <div id="mainStuff"><input type="searchbox" id="search" placeholder="Search Interests" ng-model="filterInterests"></div>
 
     <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
@@ -46,9 +46,6 @@
 	<button type="button" class="btn btn-info" ng-click="saveInterests()">
   Save
   </button>
-<!--   <button type="button" class="btn btn-info" ng-click="findFriends()">
-  Find Friends
-  </button> -->
   </div>
   </div>
 

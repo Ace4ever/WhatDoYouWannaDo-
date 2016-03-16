@@ -1,5 +1,5 @@
 app.factory("location", ["$q", "$http",
-  function($q, $http) {	
+  function($q, $http) {
 
   	// var google = keys.getLocation();
   	// console.log("???????", keys.getLocation());
@@ -22,7 +22,7 @@ app.factory("location", ["$q", "$http",
 			  });
 		});
   		}
-  	}
+  	};
 
 
 }]);
