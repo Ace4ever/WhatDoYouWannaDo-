@@ -1,0 +1,119 @@
+<div id="mainPage">
+
+ <div class="modal fade" tabindex="-1" role="dialog" id="zipModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Saved</h4>
+        </div>
+        <div class="modal-body">
+          <label>Search For Local Activities:</label>
+          <input type="text" name="zipCode" ng-model="zipCode" id="userZip" placeholder="Please Enter Your Zip Code">
+
+        <button type="button" class="btn btn-info" ng-click="searchZip()">
+        Search
+        </button>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close
+          </button>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+
+  <h1>Make Up Your Damn Mind!</h1>
+
+	<a id="logout" href="#/splash">Logout</a>
+	<a id="profile" href="#/profile">Profile</a>
+  <h3>Please select some interests:</h3>
+
+	<div id="checkList">
+  <div id="mainStuff"><input type="searchbox" id="search" placeholder="Search Interests" ng-model="filterInterests"></div>
+
+    <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
+        <input type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
+    </label>
+
+
+
+	<div id="theseButtons"><button type="button" class="btn btn-info" ng-click="showResult()">
+  Result
+  </button>
+	<button type="button" class="btn btn-info" ng-click="saveInterests()">
+  Save
+  </button>
+  </div>
+  </div>
+
+<!-- Result Modal -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="resultModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Result</h4>
+        </div>
+        <div class="modal-body">
+          <p>Your Activity Tonight Will Be:
+
+          <div id="finalResult">{{selected}}</div>
+
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close
+          </button>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+
+<!-- Saved Modal -->
+  <div class="modal fade" tabindex="-1" role="dialog" id="savedModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Saved</h4>
+        </div>
+        <div class="modal-body">
+          <p>
+          You've saved {{user.roles}} to your account!!
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close
+          </button>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+
+  <div class="modal fade" tabindex="-1" role="dialog" id="searchFriends">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Saved</h4>
+        </div>
+        <div class="modal-body">
+          <input type="searchbox" name="searchFriends" ng-model="searchFriends" placeholder="Search For Friends">
+
+            <label ng-repeat="interest in interests | filter: searchFriends">
+              {{users}}
+            </label>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close
+          </button>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div>
+
+</div>

@@ -1,0 +1,39 @@
+{
+	"interests": {
+		"skiing": {
+			"title": "Skiing"
+		}, 
+
+		"skating": {
+			"title": "Skating"
+		},
+
+		"movie": {
+			"title": "Movie"
+		},
+
+		"dining": {
+			"title": "Dining"
+		},		
+
+		"bowling": {
+			"title": "Bowling"
+		},		
+
+		"dancing": {
+			"title": "Dancing"
+		},		
+
+		"shopping": {
+			"title": "Shopping"
+		},		
+
+		"swimming": {
+			"title": "Swimming"
+		},		
+
+		"mini golf": {
+			"title": "Mini Golf"
+		}
+	}
+}

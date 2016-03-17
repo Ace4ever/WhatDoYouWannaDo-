@@ -1,0 +1,101 @@
+body {
+  margin-left: 15px;
+  font-family: Arial;
+  color: #3333ff;
+  width: 98%;
+  height: 100%; }
+
+body::after {
+  content: "";
+  background: url(../images/bowling.jpg);
+  background-size: cover;
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1; }
+
+h1 {
+  text-align: center; }
+
+#search {
+  width: 300px;
+  float: left;
+  display: block;
+  margin-bottom: 10px; }
+
+#theseButtons {
+  margin-top: 10px;
+  margin-left: 42%; }
+
+#finalResult {
+  font-weight: bold;
+  color: green;
+  display: inline;
+  font-size: 20px;
+  text-transform: uppercase; }
+
+#enterName {
+  border: 1px solid black;
+  margin: 0 200px 0 200px;
+  text-align: center;
+  padding: 30px; }
+
+#saveButton {
+  padding-top: 5px; }
+
+#checkList {
+  border: 1px solid black;
+  padding: 30px;
+  height: 400px;
+  margin: 0 150px 0 150px; }
+
+#mainStuff {
+  width: 100%;
+  display: inline-block; }
+
+.interestsList {
+  display: inline-block;
+  width: 33%;
+  margin-bottom: 15px; }
+
+.myActivities {
+  display: inline-block;
+  padding: 5px;
+  width: 50%;
+  margin-bottom: 10px; }
+
+#splashPage {
+  text-align: center;
+  height: 100%;
+  vertical-align: middle; }
+
+#loginEmail {
+  width: 500px;
+  margin-left: 30%; }
+
+#loginPassword {
+  width: 500px;
+  margin-left: 30%; }
+
+#registerButton {
+  float: right; }
+
+#loginButton {
+  float: left; }
+
+#logout {
+  float: right;
+  margin-right: 10px; }
+
+#profile {
+  float: right;
+  margin-right: 10px; }
+
+#main {
+  float: right;
+  margin-right: 15px; }
+
+/*# sourceMappingURL=main.css.map */
