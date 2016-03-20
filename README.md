@@ -23,7 +23,7 @@ npm install
 bower install
 hs
 
-Usage
+#Usage
 
 Browse to the i.p. address in the terminal or open with your favorite text editor and you should be ready to start coding.
 
