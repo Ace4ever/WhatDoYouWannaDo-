@@ -10,12 +10,8 @@ app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSe
 
   	console.log(ref);
 
-
-  	// var testing = $firebaseArray(ref);
-
   	$scope.myInterest = $firebaseArray(ref);
-  	// console.log("WHAT IS THIS THING??????", $scope.myInterest)
-  	// console.log("testing", testing);
+
 
   	$scope.myInterest.$loaded()
   	.then(function(){
@@ -34,7 +30,7 @@ app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSe
 				"lastName": $("#lName").val()
 			});
 
-			 }else {
+			 } else {
 				console.log("you gotta enter info");
 			}
 			$scope.userName = $("#fName").val() + $("#lName").val();
@@ -51,7 +47,7 @@ app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSe
 
 		ref.update({
 
-				}, function(error, userData){
+		}, function(error, userData){
 					if (error) {
 						alert(error);
 					} else {
@@ -59,7 +55,5 @@ app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSe
 					}
 		});
 	};
-
-   	// console.log(testing);
 
 }]);

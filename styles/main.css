@@ -7,7 +7,7 @@ body {
 
 body::after {
   content: "";
-  background: url(../images/bowling.jpg);
+  background: url("../images/bowling.jpg");
   background-size: cover;
   opacity: 0.3;
   top: 0;
@@ -19,6 +19,9 @@ body::after {
 
 h1 {
   text-align: center; }
+
+h3 {
+  margin-left: 25px; }
 
 #search {
   width: 300px;
