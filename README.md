@@ -5,7 +5,7 @@ The MakeUpYourMind application uses Firebase to store the user information inclu
 
 Built by Christina Young as a front-end capstone project at Nashville Software School.
 
-Installation
+#Installation
 
 If you don't have NPM yet, from your terminal:
 
@@ -27,7 +27,7 @@ Usage
 
 Browse to the i.p. address in the terminal or open with your favorite text editor and you should be ready to start coding.
 
-License
+#License
 
 MIT
 
