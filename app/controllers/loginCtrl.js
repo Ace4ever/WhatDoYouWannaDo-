@@ -1,5 +1,5 @@
-app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
-  function($q, $http, $scope, getSet, location) {
+app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet",
+  function($q, $http, $scope, getSet) {
 
 
     //private variables
@@ -8,6 +8,7 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
     $scope.loginPassword = '';
 
     var ref = new Firebase("https://justpick.firebaseio.com/users");
+    var errorMsg = $('#errorMessage')
 
 
     //register user
@@ -34,7 +35,8 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
           }
         });
       }  else {
-      console.log("you gotta enter info");
+          errorMsg.html('<b>Please enter an email and password</b>').css('color', 'red');
+          console.log("you gotta enter info");
       }
     };
 
@@ -46,6 +48,8 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet", "location",
         password : $scope.loginPassword
       }, function(error, authData) {
         if (error) {
+          console.log(errorMsg);
+          errorMsg.html("<b>Email or password is incorrect.  Please try again.</b>").css('color', 'red');
           console.log("Login Failed!", error);
         } else {
           console.log("Authenticated successfully with payload:", authData.uid);

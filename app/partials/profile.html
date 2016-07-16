@@ -13,7 +13,7 @@
 
   <label><h2>My Interests:</h2></label>
   <div ng-repeat="interest in myInterest">
-    <div id="{{interest.$value}}">
+    <div id="{{$index}}">
       <h3 class="myActivities">{{interest.$value}}</h3>
       <button id="delete" type="button" class="btn btn-info btn-xs" ng-click="deleteInterests(interest)">Delete</button>
     </div>

@@ -1,14 +1,14 @@
-app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet", "location",
-	function($q, $http, $scope, $firebaseArray, getSet, location) {
+app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet",
+	function($q, $http, $scope, $firebaseArray, getSet) {
 	var uid = getSet.getUid();
 
 	var ref = new Firebase("https://justpick.firebaseio.com/userInterests/" + uid + "/myInterests");
 
  	var userRef = new Firebase("https://justpick.firebaseio.com/users");
 
-  	console.log(uid);
+  	console.log('User ID', uid);
 
-  	console.log(ref);
+  	// console.log(ref);
 
   	$scope.myInterest = $firebaseArray(ref);
 
@@ -19,23 +19,25 @@ app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSe
   	});
 
 
-	$scope.saveChanges = function () {
-		if($("#fName") !== "" && $("#lName") !== "" && $("#fName") !== undefined && $("#lName") !== undefined){
-			$("#savedChanges").modal();
+		$scope.saveChanges = function () {
+    	var firstN = $("#fName").val();
+      var lastN = $("#lName").val();
+      if(firstN !== "" && lastN !== "" && firstN !== undefined && lastN !== undefined){
+        $("#savedChanges").modal();
 
-			var currentUserId = getSet.getUid();
+        var currentUserId = getSet.getUid();
+				console.log(currentUserId);
 
-			userRef.child("/"+currentUserId).update({
-				"firstName": $("#fName").val(),
-				"lastName": $("#lName").val()
-			});
+	      userRef.child("/"+currentUserId).update({
+          "firstName": firstN,
+          "lastName": lastN
+        });
+      } else {
+          console.log("you gotta enter info");
+        }
 
-			 } else {
-				console.log("you gotta enter info");
-			}
-			$scope.userName = $("#fName").val() + $("#lName").val();
-
-	};
+      $scope.userName = firstN + lastN;
+    };
 
 	// Function to delete interestes from user profile and firebase
 
@@ -43,15 +45,18 @@ app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSe
 
 		var ref = new Firebase("https://justpick.firebaseio.com/userInterests/" + uid + "/myInterests");
 
-		ref.child().remove();
+		console.log($(this));
 
+		$(this).remove('div');
+		console.log('????', uid);
 		ref.update({
+
 
 		}, function(error, userData){
 					if (error) {
 						alert(error);
 					} else {
-						console.log("on firebase");
+						console.log("on firebase", userData);
 					}
 		});
 	};

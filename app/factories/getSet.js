@@ -1,6 +1,5 @@
 app.factory("getSet", ["$q", "$http",
   function($q, $http) {
-
   	var userUid;
 
   	return {

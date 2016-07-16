@@ -1,5 +1,7 @@
-app.controller("mainCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet", "location",
-	function($q, $http, $scope, $firebaseArray, getSet, location) {
+app.controller("mainCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet",
+	function($q, $http, $scope, $firebaseArray, getSet) {
+
+		$scope.currentUserId = getSet.getUid();
 
 		$scope.loginEmail;
 		$scope.loginPassword;
