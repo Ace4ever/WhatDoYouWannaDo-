@@ -1,6 +1,10 @@
 app.controller("mainCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet",
 	function($q, $http, $scope, $firebaseArray, getSet) {
 
+		// console.log('testing', OAuth.public);
+
+		// var yelp = require('yelp');
+
 		$scope.currentUserId = getSet.getUid();
 
 		$scope.loginEmail;
@@ -11,10 +15,6 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "$firebaseArray", "getSet",
 		var interestsArray = $firebaseArray(interestsRef);
 		var userInterestsRef = new Firebase("https://justpick.firebaseio.com/userInterests");
 		var userInterestsArray = $firebaseArray(userInterestsRef);
-
-		// $("#zipModal").modal();
-
-
 
 
 		// set checklist & display to dom
