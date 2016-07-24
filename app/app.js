@@ -1,10 +1,19 @@
 var app = angular.module("justPick",
-	["ngRoute", "firebase", "checklist-model"]);
+	["ngRoute", "firebase", "checklist-model"])
 
-app.config(['$routeProvider', function($routeProvider) {
+app.config(['$routeProvider', function($routeProvider, keys) {
 		$routeProvider
+
 			.when('/splash', {
 				templateUrl: './partials/splash.html',
+				controller: 'loginCtrl'
+			})
+			.when('/login', {
+				templateUrl: './partials/login.html',
+				controller: 'loginCtrl'
+			})
+			.when('/register', {
+				templateUrl: './partials/register.html',
 				controller: 'loginCtrl'
 			})
 			.when("/main", {

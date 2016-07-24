@@ -75,18 +75,10 @@ h3 {
   height: 100%;
   vertical-align: middle; }
 
-#loginEmail {
-  width: 500px;
-  margin-left: 30%; }
-
-#loginPassword {
-  width: 500px;
-  margin-left: 30%; }
-
-#registerButton {
+#newUser {
   float: right; }
 
-#loginButton {
+#existingUser {
   float: left; }
 
 #logout {

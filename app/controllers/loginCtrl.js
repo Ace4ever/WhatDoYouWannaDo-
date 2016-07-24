@@ -1,5 +1,5 @@
-app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet",
-  function($q, $http, $scope, getSet) {
+app.controller("loginCtrl", ["$q", "$http", "$scope", "$location", "getSet",
+  function($q, $http, $scope, $location, getSet) {
 
 
     //private variables
@@ -7,8 +7,18 @@ app.controller("loginCtrl", ["$q", "$http", "$scope", "getSet",
     $scope.loginEmail = '';
     $scope.loginPassword = '';
 
+    //change view to register
+    $scope.registerView = function () {
+      window.location = '/#register'
+    }
+    //change view to login
+    $scope.loginView = function () {
+      window.location = '/#login'
+    }
+
     var ref = new Firebase("https://justpick.firebaseio.com/users");
     var errorMsg = $('#errorMessage')
+
 
 
     //register user

@@ -4,17 +4,12 @@
       <h1>Make Up Your Damn Mind!</h1>
     </div>
     <div id="errorMessage"></div>
-    <div class="col-md-12">
-      <input class="form-control" type="text" ng-model="loginEmail" placeholder="Email" id="loginEmail"/>
-    </div>
-    <div class="col-md-12">
-      <input type="password" class="form-control" ng-model="loginPassword" placeholder="Password" id="loginPassword">
+    <div class="col-xs-6">
+      <button id="newUser" class="btn btn-primary btn-lg" ng-click="registerView()">New User</button>
     </div>
     <div class="col-xs-6">
-      <button id="registerButton" class="btn btn-primary" ng-click="registerUser()">Register</button>
+      <button id="existingUser" class="btn btn-primary btn-lg" ng-click="loginView()">Login</button>
     </div>
-    <div class="col-xs-6">
-      <button id="loginButton"  ng-click="loginUser()" class="btn btn-primary">Login</button>
-    </div>
+
   </div>
 </div>
