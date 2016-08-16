@@ -17,26 +17,46 @@
 
   <body ng-app="justPick">
 
-     <div ng-view></div>
+    <!-- ============= NAV BAR ============= -->
+    <!-- BEGINNING OF NAV -->
+    <div ng-include="'./partials/nav.html'"></div>
+    <!-- END OF NAV BAR -->
+
+
+    <!-- ============= MAIN CONTAINER ============= -->
+    <!-- CONTAINER FOR VIEW AND NEW -->
+    <div class="container z-depth-3" id="mainContent" ng-view></div>
+    <!-- END OF CONTAINER FOR VIEW AND NEW -->
+
+    <!-- ============= LINK TAGS ============= -->
 
     <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-
+    <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="lib/bower_components/angular/angular.min.js"></script>
     <script src="lib/bower_components/angular-route/angular-route.js"></script>
-    <script src="lib/bower_components/checklist-model/checklist-model.js"></script>
-    <script src="lib/bower_components/firebase/firebase.js"></script>
-    <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+    <!-- <script src="lib/bower_components/checklist-model/checklist-model.js"></script> -->
+    <!-- <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script> -->
+    <script src="/lib/node_modules/firebase/firebase.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <script src="app.js"></script>
-    <script src="controllers/loginCtrl.js"></script>
-    <script src="factories/getSet.js"></script>
+
+    <!-- link to appJS file -->
+    <script src="javascripts/app.js"></script>
+
+    <!-- Link to values -->
+    <script src="javascripts/values/FBCreds.js"></script>
+    <!-- <script src="javascripts/values/APIKeys.js"></script> -->
+
+    <!-- Link to factories -->
+    <script src="javascripts/factories/AuthFactory.js"></script>
     <!-- <script src="app/factories/location.js"></script> -->
-    <script src="factories/keys.js"></script>
-    <script src="controllers/mainCtrl.js"></script>
-    <script src="controllers/profileCtrl.js"></script>
-    <script src="controllers/splashCtrl.js"></script>
+
+    <!-- link to controllers -->
+    <script src="javascripts/controllers/loginRegisterCtrl.js"></script>
+    <script src="javascripts/controllers/mainCtrl.js"></script>
+    <script src="javascripts/controllers/profileCtrl.js"></script>
+    <script src="javascripts/controllers/searchCtrl.js"></script>
   </body>
 
 </html>

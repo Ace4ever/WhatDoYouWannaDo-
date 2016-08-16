@@ -1,0 +1,29 @@
+<nav>
+  <div class="nav-wrapper teal accent-4">
+    <a class="brand-logo">Make Up Your Damn Mind!</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li ng-show="userIsLoggedIn">
+        <a ng-href="#/logout"><i class="material-icons left">perm_identity</i>Logout</a></li>
+      <li ng-show="userIsLoggedIn">
+        <a ng-href="#/profile"><i class="material-icons left">perm_identity</i>Profile</a></li>
+      <li ng-hide="userIsLoggedIn">
+        <a ng-href="#/login"><i class="material-icons left">perm_identity</i>Login</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <li ng-show="!userIsLoggedOut">
+        <a ng-href="#/logout"><i class="material-icons left">perm_identity</i>Logout</a></li>
+      <li ng-show="!userIsLoggedOut">
+        <a ng-href="#/profile"><i class="material-icons left">perm_identity</i>Profile</a></li>
+      <li ng-show="userIsLoggedOut">
+        <a ng-href="#/login"><i class="material-icons left">perm_identity</i>Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<!-- <li> -->
+<!-- <a ng-href="#/search"><i class="material-icons left">search</i>Search Interests</a></li> -->
+<!-- <li> -->
+<!-- <a ng-href="#/watchlist"><i class="material-icons left">local_movies</i>Watch List</a></li> -->

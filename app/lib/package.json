@@ -16,5 +16,8 @@
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "firebase": "^3.2.1"
+  }
 }

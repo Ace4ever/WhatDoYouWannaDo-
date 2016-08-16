@@ -1,4 +1,11 @@
 <div id="mainPage">
+  <!-- ============= SEARCH BAR ============= -->
+  <div class="row">
+    <form id="databaseSearch">
+      <input type="text" ng-model="interstsToSearch" placeholder="Search for activities..." class="col s9 offset-s1">
+      <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchForMovies(movieToSearch)"><i class="material-icons">search</i></button>
+    </form>
+  </div>
 
  <div class="modal fade" tabindex="-1" role="dialog" id="zipModal">
     <div class="modal-dialog">
@@ -25,17 +32,18 @@
     </div><!-- /.modal -->
   </div>
 
-  <h1>Make Up Your Damn Mind!</h1>
-
-	<a id="logout" href="#/splash">Logout</a>
+	<!-- <a id="logout" href="#/splash">Logout</a>
 	<a id="profile" href="#/profile">Profile</a>
-  <h3>Please select some interests:</h3>
+  <h3>Please select some interests:</h3> -->
 
 	<div id="checkList">
-  <div id="mainStuff"><input type="searchbox" id="search" placeholder="Search Interests" ng-model="filterInterests"></div>
+  <!-- <div id="mainStuff"><input type="searchbox" id="search" placeholder="Search Interests" ng-model="filterInterests"></div> -->
 
     <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
         <input type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
+    </label>
+    <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
+        <div type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
     </label>
 
 
