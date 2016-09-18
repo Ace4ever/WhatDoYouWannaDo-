@@ -1,39 +1,37 @@
-app.controller("loginRegisterCtrl", ["$q", "$http", "$scope", "$location", "AuthFactory",
-  function($q, $http, $scope, $location, AuthFactory) {
-    $scope.email = '';
-    $scope.password = '';
-    // $scope.currentUid = '';
+app.controller('loginRegisterCtrl', function($scope, AuthFactory, $window) {
+  $scope.userInfo = {
+    email: "",
+    password: ""
+  };
 
-    $(".button-collapse").sideNav();
+  $(".button-collapse").sideNav();
 
-    $('.collapsible').collapsible({
-      accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
+  $('.collapsible').collapsible({
+    accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+  });
 
-  $scope.registerUser = function () {
-    $location.url('/main');
-    AuthFactory.register($scope.email, $scope.password)
-    .then(function(result) {
-      var user = result.uid;
-      console.log("logged in user", currentUser);
-    })
-    .catch(function(err) {
-      console.log(err);
+  $scope.loginUser = () => {
+    AuthFactory.login($scope.userInfo)
+    .then((data) => {
+      console.log("logged in with email data", data);
+      $window.location.href = '#/main';
     });
   };
 
-  $scope.loginUser = function () {
-    $location.url('/main');
-    AuthFactory.login($scope.email, $scope.password)
-    .then(function(result) {
-      var currentUser = result.uid;
-      console.log('hello', result.uid)
-    })
-    .catch(function(err) {
-      console.log(err);
-    })
+  $scope.registerUser = () => {
+    AuthFactory.register($scope.userInfo)
+    .then((data) => {
+      console.log("Email and password registration Data", data);
+      AuthFactory.login($scope.userInfo);
+    });
   };
-// }]);
+
+    $scope.logoutUser = () => {
+      AuthFactory.logout();
+      $location.url('/');
+      console.log('User is logged out')
+    }
+});
 //
 //
 //     //private variables
@@ -125,5 +123,5 @@ app.controller("loginRegisterCtrl", ["$q", "$http", "$scope", "$location", "Auth
 //         }
 //       });
 //     };
-  }]);
+  // }]);
 //

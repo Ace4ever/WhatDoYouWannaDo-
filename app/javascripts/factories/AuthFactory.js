@@ -1,57 +1,44 @@
 "use strict";
 
-app.factory("AuthFactory", function() {
+app.factory("AuthFactory", function($q) {
 
-  let currentUserId = null;
-  // console.log("CUID", currentUserId);
-
-  let isAuthenticated = function() {
-    return (currentUserId) ? true : false;
+  let getUser = () => {
+    console.log('WHAT THE HELL')
+    return firebase.auth().currentUser.uid;
   };
 
-  let getUser = function() {
-    return currentUserId;
-  // console.log("getUser", getUser);
-  };
-
-  let setUser = function(id) {
-    currentUserId = id;
-    // console.log("CUID", currentUserId);
-  };
-
-  let logout = function() {
-    currentUserId = null;
-  };
-
-  let register = function (email, password) {
-    return firebase.auth().createUserWithEmailAndPassword(email, password)
+  let register = (userObj) => {
+    return firebase.auth().createUserWithEmailAndPassword(userObj.email, userObj.password)
     .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-    console.warn(errorCode, errorMessage);
+      let errorCode = error.code;
+      let errorMessage = error.Message;
     });
   };
 
-  let login = function (email, password) {
-    console.log('you are logged in')
-    return firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-    console.warn(errorCode, errorMessage);
+  let login = (userObj) => {
+    return firebase.auth().signInWithEmailAndPassword(userObj.email, userObj.password)
+    .then((userData) => {
+      return $q.resolve(userData);
+    })
+    .catch((error) => {
+      let errorCode = error.code;
+      let errorMessage = error.Message;
+      console.error(errorCode, errorMessage);
     });
   };
 
-  return {
-    isAuthenticated, getUser, setUser, register, login
-    };
+  let logout = () => {
+    console.log("logged out User");
+    return firebase.auth().signOut();
+  };
+
+  let isAuthenticated = () => (firebase.auth().currentUser) ? true : false;
+
+  return {isAuthenticated, getUser, register, login, logout};
 });
 
 app.run(["$location", "FBCreds",  "AuthFactory", function ($location, FBCreds, AuthFactory) {
-  console.log();
+  // console.log('WHATEVER')
   let authConfig = {
     apiKey: FBCreds.apiKey,
     authDomain: FBCreds.authDomain,
@@ -61,15 +48,17 @@ app.run(["$location", "FBCreds",  "AuthFactory", function ($location, FBCreds, A
 
   firebase.initializeApp(authConfig);
 
-  firebase.auth().onAuthStateChanged(function (user) {
-    // console.log(user.uid);
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      // User is signed in.
+      console.log('user', user)
       AuthFactory.setUser(user.uid);
       $location.url("/");
-      // console.log('HELLO');
     } else {
+      // No user is signed in.
       $location.url("/");
       AuthFactory.setUser(null); //this is to rest the current user to hide board.
     }
   });
+
 }]);

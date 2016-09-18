@@ -1,8 +1,14 @@
-const app = angular.module("justPick", ["ngRoute"])
+let app = angular.module("justPick", ["ngRoute", 'uiGmapgoogle-maps'])
 .constant('FirebaseURL', 'https://justpick.firebaseio.com/');
 
-app.config(function($routeProvider) {
+app.config(function(uiGmapGoogleMapApiProvider, APIKeys) {
+      uiGmapGoogleMapApiProvider.configure({
+        key: 'AIzaSyDBUE5FfF65kNEX-gSwY0FRSVB4IJJi8Po',
+        libraries: 'places'  // Required for SearchBox.
+    });
+});
 
+app.config(function($routeProvider) {
 
 		$routeProvider
 			.when('/', {
@@ -10,6 +16,10 @@ app.config(function($routeProvider) {
 				controller: 'loginRegisterCtrl'
 			})
 			.when('/login', {
+				templateUrl: './partials/loginRegister.html',
+				controller: 'loginRegisterCtrl'
+			})
+			.when('/logout', {
 				templateUrl: './partials/loginRegister.html',
 				controller: 'loginRegisterCtrl'
 			})
@@ -27,3 +37,13 @@ app.config(function($routeProvider) {
 			})
 			.otherwise('/login');
 	});
+
+//   app.run(["FBCreds",  "AuthFactory", function (FBCreds, AuthFactory) {
+//     let authConfig = {
+//       apiKey: FBCreds.apiKey,
+//       authDomain: FBCreds.authDomain,
+//       databaseURL: FBCreds.databaseURL,
+//       storageBucket: FBCreds.storageBucket,
+//     };
+//   firebase.initializeApp(authConfig);
+// }]);

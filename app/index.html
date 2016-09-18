@@ -16,40 +16,52 @@
   </head>
 
   <body ng-app="justPick">
+    <div ng-controller='topCtrl'>
+      <!-- ============= NAV BAR ============= -->
+      <!-- BEGINNING OF NAV -->
+      <div ng-include="'./partials/nav.html'"></div>
+      <!-- END OF NAV BAR -->
 
-    <!-- ============= NAV BAR ============= -->
-    <!-- BEGINNING OF NAV -->
-    <div ng-include="'./partials/nav.html'"></div>
-    <!-- END OF NAV BAR -->
 
+      <!-- ============= MAIN CONTAINER ============= -->
+      <!-- CONTAINER FOR VIEW AND NEW -->
+      <div class="container z-depth-3" id="mainContent" ng-view></div>
+      <!-- END OF CONTAINER FOR VIEW AND NEW -->
 
-    <!-- ============= MAIN CONTAINER ============= -->
-    <!-- CONTAINER FOR VIEW AND NEW -->
-    <div class="container z-depth-3" id="mainContent" ng-view></div>
-    <!-- END OF CONTAINER FOR VIEW AND NEW -->
+    </div>
 
     <!-- ============= LINK TAGS ============= -->
 
+    <!-- Jquery -->
     <script src="./lib/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="lib/bower_components/angular/angular.min.js"></script>
-    <script src="lib/bower_components/angular-route/angular-route.js"></script>
-    <!-- <script src="lib/bower_components/checklist-model/checklist-model.js"></script> -->
-    <!-- <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script> -->
+    <!-- Firebase -->
     <script src="/lib/node_modules/firebase/firebase.js"></script>
+
+    <!-- Google Maps Scripts -->
+    <!-- <script src='//maps.googleapis.com/maps/api/js?'></script> -->
+    <script src='lib/node_modules/lodash/lodash.min.js'></script>
+    <script src='lib/node_modules/angular/angular.min.js'></script>
+    <script src='lib/node_modules/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+    <script src='lib/node_modules/angular-google-maps/dist/angular-google-maps.min.js'></script>
+    <script src="lib/bower_components/angular-route/angular-route.js"></script>
+
+    <!-- Styling - materialize, bootstrap, checklist model -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="./lib/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/bower_components/checklist-model/checklist-model.js"></script>
 
     <!-- link to appJS file -->
     <script src="javascripts/app.js"></script>
 
     <!-- Link to values -->
     <script src="javascripts/values/FBCreds.js"></script>
-    <!-- <script src="javascripts/values/APIKeys.js"></script> -->
+    <script src="javascripts/values/APIKeys.js"></script>
 
     <!-- Link to factories -->
     <script src="javascripts/factories/AuthFactory.js"></script>
+    <script src="./javascripts/factories/SearchGoogleAPI.js"></script>
+    <script src="./javascripts/factories/FilterFactory.js"></script>
     <!-- <script src="app/factories/location.js"></script> -->
 
     <!-- link to controllers -->
@@ -57,6 +69,7 @@
     <script src="javascripts/controllers/mainCtrl.js"></script>
     <script src="javascripts/controllers/profileCtrl.js"></script>
     <script src="javascripts/controllers/searchCtrl.js"></script>
+    <script src="javascripts/controllers/topCtrl.js"></script>
   </body>
 
 </html>

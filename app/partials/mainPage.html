@@ -2,60 +2,34 @@
   <!-- ============= SEARCH BAR ============= -->
   <div class="row">
     <form id="databaseSearch">
-      <input type="text" ng-model="interstsToSearch" placeholder="Search for activities..." class="col s9 offset-s1">
-      <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchForMovies(movieToSearch)"><i class="material-icons">search</i></button>
+      <input type="text" ng-model="usersZipCode" id="search" placeholder="Enter your zipcode..." class="col s4 offset-s1">
+      <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchForLocation()"><i class="material-icons">search</i></button>
     </form>
   </div>
-
- <div class="modal fade" tabindex="-1" role="dialog" id="zipModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Saved</h4>
-        </div>
-        <div class="modal-body">
-          <label>Search For Local Activities:</label>
-          <input type="text" name="zipCode" ng-model="zipCode" id="userZip" placeholder="Please Enter Your Zip Code">
-
-        <button type="button" class="btn btn-info" ng-click="searchZip()">
-        Search
-        </button>
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close
-          </button>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-  </div>
-
-	<!-- <a id="logout" href="#/splash">Logout</a>
-	<a id="profile" href="#/profile">Profile</a>
-  <h3>Please select some interests:</h3> -->
-
-	<div id="checkList">
+	<!-- <div id="checkList"> -->
   <!-- <div id="mainStuff"><input type="searchbox" id="search" placeholder="Search Interests" ng-model="filterInterests"></div> -->
 
-    <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
+  <div id="output" ng-repeat="name in placeName track by $index">
+    {{name}}
+  </div>
+
+
+    <!-- <label ng-repeat="interest in searchResults | filter: interstsToSearch" class="interestsList">
         <input type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
     </label>
     <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
         <div type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
-    </label>
+    </label> -->
 
 
 
-	<div id="theseButtons"><button type="button" class="btn btn-info" ng-click="showResult()">
-  Result
-  </button>
+	<div id="theseButtons">
+  <button type="button" class="btn btn-info" ng-click="showResult()">Result</button>
 	<button type="button" class="btn btn-info" ng-click="saveInterests()">
   Save
   </button>
   </div>
-  </div>
+  <!-- </div> -->
 
 <!-- Result Modal -->
   <div class="modal fade" tabindex="-1" role="dialog" id="resultModal">

@@ -1,6 +1,16 @@
-// app.controller("profileCtrl", ["$q", "$http", "$scope", "$firebaseArray",
-// 	function($q, $http, $scope, $firebaseArray) {
-// 	var uid = getSet.getUid();
+app.controller("profileCtrl", ["$q", "$http", "$scope", "$location", "AuthFactory",
+	function($q, $http, $scope, $location, AuthFactory) {
+    $scope.currentUser = AuthFactory.getUser();
+    $('#profileLink').removeClass('ng-hide');
+    $('#mainPageLink').removeClass('ng-hide');
+    $('#logoutLink').removeClass('ng-hide');
+    
+    if ($scope.currentUser !== null) {
+      console.log('user logged in??', $scope.currentUser);
+    } else {
+      $location.url('/');
+      alert('User must be logged in');
+    }
 //
 // 	var ref = new Firebase("https://justpick.firebaseio.com/userInterests/" + uid + "/myInterests");
 //
@@ -59,6 +69,6 @@
 // 						console.log("on firebase", userData);
 // 					}
 // 		});
-// 	};
-//
-// }]);
+	// };
+
+}]);

@@ -1,19 +1,52 @@
-app.controller("mainCtrl", ["$q", "$http", "$scope",
-	function($q, $http, $scope) {
-  //
-	// 	// console.log('testing', OAuth.public);
-  //
-	// 	// var yelp = require('yelp');
-  //
-	// 	$(".button-collapse").sideNav();
-  //
+app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogleAPI",
+	function($q, $http, $scope, AuthFactory, SearchGoogleAPI) {
+
+
+
+		$scope.usersZipCode;
+
+    $scope.currentUser = AuthFactory.getUser();
+    $('#profileLink').removeClass('ng-hide');
+    $('#mainPageLink').removeClass('ng-hide');
+    $('#logoutLink').removeClass('ng-hide');
+
+
+    if ($scope.currentUser !== null) {
+      $('.modal-trigger').leanModal();
+      console.log('user logged in??', $scope.usersZipCode);
+			$scope.searchForLocation = () => {
+				$scope.placeName = [];
+				$scope.locationArray = [];
+				$scope.myLocation = [];
+				SearchGoogleAPI.gettingLocation($scope.usersZipCode)
+				.then((data) => {
+					$scope.locationResults = data.results;
+					for (var i = 0; i < $scope.locationResults.length; i++) {
+						$scope.locationArray.push($scope.locationResults[i]);
+						$scope.myLatitude = $scope.locationArray[0].geometry.location.lat;
+						$scope.myLongitude = $scope.locationArray[0].geometry.location.lng;
+						$scope.myLocation.push($scope.myLatitude, $scope.myLongitude)
+						console.log('TESTING LAT LOCATION', $scope.myLocation)
+					}
+					SearchGoogleAPI.getSearchResults($scope.myLocation)
+					.then((data2) => {
+						$scope.searchResults = data2.results;
+						console.log($scope.searchResults);
+						for (var i = 0; i < $scope.searchResults.length; i++) {
+							$scope.placeName.push($scope.searchResults[i].name);
+						}
+						console.log($scope.placeName);
+					})
+			})
+		}
+	}
 	// 	$scope.currentUserId = getSet.getUid();
   //
 	// 	$scope.loginEmail;
 	// 	$scope.loginPassword;
 	// 	$scope.interstsToSearch;
   //
-	// 	var ref = new Firebase("https://justpick.firebaseio.com/users");
+		// var ref = new Firebase("https://justpick.firebaseio.com/users");
 	// 	var interestsRef = new Firebase("https://justpick.firebaseio.com/interests");
 	// 	var interestsArray = $firebaseArray(interestsRef);
 	// 	var userInterestsRef = new Firebase("https://justpick.firebaseio.com/userInterests");
@@ -24,23 +57,15 @@ app.controller("mainCtrl", ["$q", "$http", "$scope",
   //
 	// 	interestsArray.$loaded()
 	// 	.then(function(data){
-	// 		  $scope.interests = [
-	// 				'dancing',
-	// 				'dining',
-	// 				'mini golf',
-	// 				'bowling',
-	// 		    'shopping',
-	// 		    'movie',
-	// 		    'skating',
-	// 		    'swimming',
-	// 		    'skiing',
-	// 		    'hiking',
-	// 		    'ice skating',
-	// 		    'ping pong',
-	// 		    'shoot hoops',
-	// 		    'kareoke',
-	// 		    'fishing'
-	// 		  ];
+			  $scope.types = [
+					'restaurant',
+					'food',
+					'department_store',
+					'bowling_alley',
+			    'amusement_park',
+			    'aquarium',
+			    'zoo'
+			  ];
   //
   //
 	// 		  $scope.user = {
@@ -77,18 +102,6 @@ app.controller("mainCtrl", ["$q", "$http", "$scope",
 	// 		});
   //
 	// 		console.log("THIS HAS BEEN SAVED!", currentUserId);
-	// 	};
-  //
-	// 	$scope.findFriends = function() {
-	// 		$("#searchFriends").modal();
-  //
-	// 	};
-  //
-	// 	$scope.searchZip = function() {
-	// 		var testing = location.searchArea();
-	// 		testing.then(function(response){
-  //
-	// 		});
 	// 	};
 
 	}]);
