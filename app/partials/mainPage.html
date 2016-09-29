@@ -2,22 +2,51 @@
   <!-- ============= SEARCH BAR ============= -->
   <div class="row">
     <form id="databaseSearch">
-      <input type="text" ng-model="usersZipCode" id="search" placeholder="Enter your zipcode..." class="col s4 offset-s1">
-      <button class="waves-effect waves-light btn-floating teal btn" ng-click="searchForLocation()"><i class="material-icons">search</i></button>
+      <div class="row">
+        <!-- <div class="col-md-4"> -->
+          <input type="text" ng-model="usersZipCode" id="search" placeholder="Enter your zipcode..." class="col s4 offset-s1">
+        <!-- </div> -->
+        <div class="col-md-3">
+          <select name="searchType" id="typeDropdown">
+            <option value="Select">Select An Activity</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="bowling_alley">Bowling</option>
+            <option value="movie_theater">Movie</option>
+            <option value="aquarium">Aquarium</option>
+            <option value="night_club">Dancing</option>
+            <option value="department_store|shoe_store|shopping_mall">Shopping</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <select name="selectRadius" id="radiusDropdown">
+            <option value="Select">Select Radius</option>
+            <option value="8046.72">5 miles</option>
+            <option value="16093.4">10 miles</option>
+            <option value="24140.2">15 miles</option>
+            <option value="32186.9">20 miles</option>
+            <option value="40233.6">25 miles</option>
+            <option value="48280.3">30 miles</option>
+          </select>
+        </div>
+        <div class="col-md-1">
+          <button class="waves-effect waves-light btn-floating teal btn" id="searchButton" ng-click="searchForLocation()"><i class="material-icons">search</i></button>
+        </div>
+      </div>
     </form>
   </div>
-	<!-- <div id="checkList"> -->
+  <!-- Dropdown Trigger -->
   <!-- <div id="mainStuff"><input type="searchbox" id="search" placeholder="Search Interests" ng-model="filterInterests"></div> -->
 
-  <div id="output" ng-repeat="name in placeName track by $index">
-    {{name}}
+  <div id="output" class="row">
+    <form action="#">
+      <div ng-repeat="name in placeName track by $index" class="col s5 offset-s1">
+        <input type="checkbox" name="activityChkbx" id="{{$index}}">
+        <label for="{{$index}}">{{name}}</label>
+      </div>
+    </form>
   </div>
 
-
-    <!-- <label ng-repeat="interest in searchResults | filter: interstsToSearch" class="interestsList">
-        <input type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
-    </label>
-    <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
+    <!-- <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
         <div type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
     </label> -->
 
@@ -25,9 +54,7 @@
 
 	<div id="theseButtons">
   <button type="button" class="btn btn-info" ng-click="showResult()">Result</button>
-	<button type="button" class="btn btn-info" ng-click="saveInterests()">
-  Save
-  </button>
+	<button type="button" class="btn btn-info" ng-click="saveInterests()">Save</button>
   </div>
   <!-- </div> -->
 
@@ -64,7 +91,7 @@
         </div>
         <div class="modal-body">
           <p>
-          You've saved {{user.roles}} to your account!!
+          You've saved {{index}} to your account!!
           </p>
         </div>
         <div class="modal-footer">

@@ -8,7 +8,7 @@ app.config(function(uiGmapGoogleMapApiProvider, APIKeys) {
     });
 });
 
-app.config(function($routeProvider) {
+app.config(($routeProvider) => {
 
 		$routeProvider
 			.when('/', {
@@ -38,12 +38,12 @@ app.config(function($routeProvider) {
 			.otherwise('/login');
 	});
 
-//   app.run(["FBCreds",  "AuthFactory", function (FBCreds, AuthFactory) {
-//     let authConfig = {
-//       apiKey: FBCreds.apiKey,
-//       authDomain: FBCreds.authDomain,
-//       databaseURL: FBCreds.databaseURL,
-//       storageBucket: FBCreds.storageBucket,
-//     };
-//   firebase.initializeApp(authConfig);
-// }]);
+  app.run(["FBCreds",  "AuthFactory", function (FBCreds, AuthFactory) {
+    let authConfig = {
+      apiKey: FBCreds.apiKey,
+      authDomain: FBCreds.authDomain,
+      databaseURL: FBCreds.databaseURL,
+      storageBucket: FBCreds.storageBucket,
+    };
+  firebase.initializeApp(authConfig);
+}]);

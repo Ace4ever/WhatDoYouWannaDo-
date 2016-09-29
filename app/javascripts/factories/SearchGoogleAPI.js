@@ -14,10 +14,10 @@ app.factory("SearchGoogleAPI", function($q, $http, APIKeys){
             });
         });
     };
-    let getSearchResults = (myLocation) => {
-      console.log(myLocation)
+    let getSearchResults = (myLocation, activity, radius) => {
+      console.log(radius)
         return $q((resolve, reject) => {
-          $http.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${myLocation}&radius=5000&type=restaurant&key=${APIKeys.myKey}`)
+          $http.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${myLocation}&radius=${radius}&types=${activity}&key=${APIKeys.myKey}`)
             .success(function(returnObject){
               console.log(returnObject)
               resolve(returnObject);
