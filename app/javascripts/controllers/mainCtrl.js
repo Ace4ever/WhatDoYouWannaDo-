@@ -6,6 +6,8 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 		$scope.activity;
 		$scope.radius;
 		$scope.checkedActivities = [];
+		$('#zeroResults').hide();
+
 
     $('#profileLink').removeClass('ng-hide');
     $('#mainPageLink').removeClass('ng-hide');
@@ -39,29 +41,27 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 					}
 					SearchGoogleAPI.getSearchResults($scope.myLocation, $scope.activity, $scope.radius)
 					.then((data2) => {
-						$scope.searchResults = data2.results;
-						console.log($scope.searchResults);
-						for (var i = 0; i < $scope.searchResults.length; i++) {
-							$scope.placeName.push($scope.searchResults[i].name);
+						if (data2.status !== "ZERO_RESULTS") {
+							$('#zeroResults').hide();
+							$scope.searchResults = data2.results;
+							console.log($scope.searchResults);
+							for (var i = 0; i < $scope.searchResults.length; i++) {
+								$scope.placeName.push($scope.searchResults[i].name);
+							}
+						} else {
+							$('#zeroResults').show();
 						}
 						console.log($scope.placeName);
 					})
 			})
 		}
 
-		$('activityChkbx').each(function () {
-			console.log('TESTING');
-           if (this.checked) {
-               console.log($(this).val());
-           }
-		});
 
-				// $("input:checkbox[name=activityChkbx]:checked").each(function() {
-				// 	car_type_arr.push($(this).val());
-				// 	$scope.checkedActivities.push($(this).val());
-				// 	console.log('CHECKED VALUES', $scope.checkedActivities);
-				// });
 
+			// $.each($('input[type="checkbox"]:checked'), function (key, value) {
+			// 		$scope.checkedActivities.push($(value).attr("name"));
+			// 		console.log('CHECKED VALES', $scope.checkedActivities);
+			// 	});
 				$scope.showResult = function () {
 				// if ($scope.checkedActivities !== []) {
 				// 	console.log($scope.checkedActivities);

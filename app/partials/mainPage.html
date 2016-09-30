@@ -38,6 +38,9 @@
   <!-- <div id="mainStuff"><input type="searchbox" id="search" placeholder="Search Interests" ng-model="filterInterests"></div> -->
 
   <div id="output" class="row">
+    <div id="zeroResults">
+      There are zero search results, please expand your search
+    </div>
     <form action="#">
       <div ng-repeat="name in placeName track by $index" class="col s5 offset-s1">
         <input type="checkbox" name="activityChkbx" id="{{$index}}">

@@ -29,6 +29,16 @@ h3 {
 	margin-left: 25px;
 }
 
+label {
+	color: purple;
+}
+
+#zeroResults {
+	text-align: center;
+	color: #DF013A;
+	font-size: 25px;
+}
+
 #typeDropdown {
 	display: inline;
 }
@@ -57,6 +67,7 @@ h3 {
 
 #theseButtons{
 	margin: 12px 0 12px 0;
+	text-align: center;
 	// margin-top: 10px;
 	// margin-left: 42%;
 }
