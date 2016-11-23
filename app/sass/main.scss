@@ -32,6 +32,10 @@ h3 {
 label {
 	color: purple;
 }
+	// 
+	// option {
+	// 	background-color: #00bfa5;
+	// }
 
 #zeroResults {
 	text-align: center;
@@ -41,10 +45,12 @@ label {
 
 #typeDropdown {
 	display: inline;
+	color: #00bfa5;
 }
 
 #radiusDropdown {
 	display: inline;
+	color: #00bfa5;
 }
 
 #mainContent {
@@ -68,8 +74,6 @@ label {
 #theseButtons{
 	margin: 12px 0 12px 0;
 	text-align: center;
-	// margin-top: 10px;
-	// margin-left: 42%;
 }
 
 #finalResult{
@@ -102,14 +106,6 @@ label {
 	padding: 5px;
 	width: 50%;
 	margin-bottom: 10px;
-}
-
-#newUser {
-	float: right;
-}
-
-#existingUser {
-	float: left;
 }
 
 #logout {

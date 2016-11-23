@@ -32,10 +32,12 @@ label {
   font-size: 25px; }
 
 #typeDropdown {
-  display: inline; }
+  display: inline;
+  color: #00bfa5; }
 
 #radiusDropdown {
-  display: inline; }
+  display: inline;
+  color: #00bfa5; }
 
 #mainContent {
   margin-top: 10px; }
@@ -81,12 +83,6 @@ label {
   padding: 5px;
   width: 50%;
   margin-bottom: 10px; }
-
-#newUser {
-  float: right; }
-
-#existingUser {
-  float: left; }
 
 #logout {
   float: right;

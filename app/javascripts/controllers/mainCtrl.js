@@ -56,13 +56,14 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 			})
 		}
 
-
-
-			// $.each($('input[type="checkbox"]:checked'), function (key, value) {
-			// 		$scope.checkedActivities.push($(value).attr("name"));
-			// 		console.log('CHECKED VALES', $scope.checkedActivities);
+			$scope.test = $.each($('input[name="activityChkbx[]"]:checked'))
+			// , function (key, value) {
+					// $scope.checkedActivities.push($scope.test);
 			// 	});
+
 				$scope.showResult = function () {
+					console.log('CHECKING TEST', $scope.test);
+					console.log('CHECKED VALES', $scope.checkedActivities);
 				// if ($scope.checkedActivities !== []) {
 				// 	console.log($scope.checkedActivities);
 				$("#resultModal").modal();
@@ -74,19 +75,20 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 			// }
 			};
 
-		// $scope.saveInterests = function () {
-		// 	$("#savedModal").modal();
-		//
-		// 	var currentUserId = getSet.getUid();
-		// 	var thisUsersInterests = $scope.checkedActivities;
-		// 	console.log("thisUsersInterests", thisUsersInterests);
-		// 	userInterestsRef.child("/"+currentUserId).set({
-		// 		"myInterests": thisUsersInterests
-		//
-		// 	});
-		//
-		// 	console.log("THIS HAS BEEN SAVED!", currentUserId);
-		// };
+		$scope.saveInterests = function () {
+			console.log('HELLO PEOPLE WHAT IS HAPPENING')
+			$("#savedModal").modal();
+
+			var currentUserId = getSet.getUid();
+			var thisUsersInterests = $scope.checkedActivities;
+			console.log("thisUsersInterests", thisUsersInterests);
+			userInterestsRef.child("/"+currentUserId).set({
+				"myInterests": thisUsersInterests
+
+			});
+
+			console.log("THIS HAS BEEN SAVED!", currentUserId);
+		};
 	}
 
 	// 	// function that randomly generates result from usere's selected interests and displays result modal
