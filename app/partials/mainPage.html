@@ -43,7 +43,7 @@
     </div>
     <form action="#">
       <div ng-repeat="name in placeName track by $index" class="col s5 offset-s1">
-        <input type="checkbox" name="activityChkbx" id="{{$index}}">
+        <input type="checkbox" name="activityChkbx" class="checkboxes" id="{{$index}}" value="{{name}}">
         <label for="{{$index}}">{{name}}</label>
       </div>
     </form>

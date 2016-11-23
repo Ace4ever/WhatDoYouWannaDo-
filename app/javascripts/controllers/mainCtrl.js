@@ -56,14 +56,19 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 			})
 		}
 
-			$scope.test = $.each($('input[name="activityChkbx[]"]:checked'))
-			// , function (key, value) {
-					// $scope.checkedActivities.push($scope.test);
-			// 	});
+		$scope.things = $("input:checked");
 
-				$scope.showResult = function () {
-					console.log('CHECKING TEST', $scope.test);
-					console.log('CHECKED VALES', $scope.checkedActivities);
+		// if (true) {
+		//
+		// }
+		//
+		// 	$("input:checked").each(function(){
+		//
+		// 	});
+
+			$scope.showResult = function () {
+				console.log('CHECKING TEST', $scope.things);
+					// console.log('CHECKED VALES', $scope.checkedActivities);
 				// if ($scope.checkedActivities !== []) {
 				// 	console.log($scope.checkedActivities);
 				$("#resultModal").modal();
