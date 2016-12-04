@@ -53,47 +53,36 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 						}
 						console.log($scope.placeName);
 					})
-			})
-		}
+				})
+			}
 
-		$scope.things = $("input:checked");
-
-		// if (true) {
-		//
-		// }
-		//
-		// 	$("input:checked").each(function(){
-		//
-		// 	});
+			$scope.checked = {
+		    placeName: []
+		  };
 
 			$scope.showResult = function () {
-				console.log('CHECKING TEST', $scope.things);
-					// console.log('CHECKED VALES', $scope.checkedActivities);
-				// if ($scope.checkedActivities !== []) {
-				// 	console.log($scope.checkedActivities);
-				$("#resultModal").modal();
-
-			// 	$scope.selected = $scope.checkedActivities[Math.floor(Math.random() * $scope.checkedActivities.length)];
-			// 	console.log($scope.selected);
-			// }else {
-			// 	console.log("Please make some selections");
-			// }
+				console.log('CHECKING TEST', $scope.checked.placeName);
+				if ($scope.checked.placeName !== []) {
+					$("#resultModal").modal();
+					$scope.selected = $scope.checked.placeName[Math.floor(Math.random() * $scope.checked.placeName.length)];
+					console.log($scope.selected);
+				} else {
+					alert("Please make some selections");
+				}
 			};
 
-		$scope.saveInterests = function () {
-			console.log('HELLO PEOPLE WHAT IS HAPPENING')
-			$("#savedModal").modal();
+			$scope.saveInterests = function () {
+				console.log('HELLO PEOPLE WHAT IS HAPPENING')
+				$("#savedModal").modal();
 
-			var currentUserId = getSet.getUid();
-			var thisUsersInterests = $scope.checkedActivities;
-			console.log("thisUsersInterests", thisUsersInterests);
-			userInterestsRef.child("/"+currentUserId).set({
-				"myInterests": thisUsersInterests
-
-			});
-
-			console.log("THIS HAS BEEN SAVED!", currentUserId);
-		};
+				// var currentUserId = getSet.getUid();
+				$scope.thisUsersInterests = $scope.checked.placeName;
+				console.log("thisUsersInterests", $scope.thisUsersInterests[i]);
+				// userInterestsRef.child("/"+currentUserId).set({
+				// 	"myInterests": thisUsersInterests
+				// });
+				// console.log("THIS HAS BEEN SAVED!", currentUserId);
+			};
 	}
 
 	// 	// function that randomly generates result from usere's selected interests and displays result modal

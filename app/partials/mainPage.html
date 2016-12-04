@@ -43,7 +43,7 @@
     </div>
     <form action="#">
       <div ng-repeat="name in placeName track by $index" class="col s5 offset-s1">
-        <input type="checkbox" name="activityChkbx" class="checkboxes" id="{{$index}}" value="{{name}}">
+        <input type="checkbox" checklist-model="checked.placeName" checklist-value="name" class="checkboxes" id="{{$index}}">
         <label for="{{$index}}">{{name}}</label>
       </div>
     </form>
@@ -94,7 +94,13 @@
         </div>
         <div class="modal-body">
           <p>
-          You've saved {{index}} to your account!!
+            You've saved:
+            <div ng-repeat="thing in thisUsersInterests track by $index" class="divInlineSaved">
+              {{index}}- {{thing}}
+            </div>
+            <div>
+              to your account!!
+            </div>
           </p>
         </div>
         <div class="modal-footer">

@@ -1,4 +1,4 @@
-let app = angular.module("justPick", ["ngRoute", 'uiGmapgoogle-maps'])
+let app = angular.module("justPick", ["ngRoute", 'uiGmapgoogle-maps', 'checklist-model'])
 .constant('FirebaseURL', 'https://justpick.firebaseio.com/');
 
 app.config(function(uiGmapGoogleMapApiProvider, APIKeys) {
