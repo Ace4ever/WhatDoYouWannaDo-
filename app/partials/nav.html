@@ -1,8 +1,6 @@
 <nav ng-controller="loginRegisterCtrl">
   <div class="nav-wrapper teal accent-4">
-      <a class="brand-logo">Make Up Your Damn Mind!</a>
-      <!-- <input type="text" ng-model="interstsToSearch" id="search" placeholder="Search for activities..." class="col s9 offset-s1">
-      <button class="waves-effect waves-light btn-floating teal btn"><i class="material-icons">search</i></button> -->
+    <a class="brand-logo">Make Up Your Damn Mind!</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li ng-hide='hideNavButtons'>
@@ -14,7 +12,6 @@
       <li ng-hide='hideNavButtons'>
         <a id="logoutLink" ng-click="logoutUser()"><i class="material-icons left">perm_identity</i>Logout</a>
       </li>
-        <!-- <a ng-href="#/login"><i class="material-icons left">perm_identity</i>Login</a></li> -->
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li>
@@ -22,7 +19,7 @@
       <li>
         <a ng-href="#/profile"><i class="material-icons left">perm_identity</i>Profile</a></li>
       <li>
-        <a ng-href="#/logout"><i class="material-icons left">perm_identity</i>Logout</a></li>
+        <a ng-href="#/logout" ng-click="logoutUser()"><i class="material-icons left">perm_identity</i>Logout</a></li>
     </ul>
   </div>
 </nav>

@@ -1,48 +1,9 @@
-<div id="profilePage">
+<div id="profile">
 
-  <!-- <h1>Make Up Your Damn Mind!</h1>
+  <h3>My Interests:</h3>
 
-  <a id="logout" href="#/splash">Logout</a>
-  <a id="main" href="#/main">Main</a> -->
-
-	<!-- <div id="enterName">
-  <div><input type="textbox" name="fName" id="fName" placeholder="Enter Your First Name"></div>
-	<div><input type="textbox" name="lName" id="lName" placeholder="Enter Your Last Name"></div>
-
-  <div id="saveButton"><button type="button" class="btn btn-info" ng-click="saveChanges()">Save</button></div> -->
-
-  <label><h2>My Interests:</h2></label>
-  <div ng-repeat="interest in myInterest">
-    <div id="{{$index}}">
-      <h3 class="myActivities">{{interest.$value}}</h3>
-      <button id="delete" type="button" class="btn btn-info btn-xs" ng-click="deleteInterests(interest)">Delete</button>
-    </div>
+  <div ng-repeat="that in this track by $index">
+    <h3 class="col s5">{{that}}</h3>
   </div>
-  </div>
-
-<div class="modal fade" tabindex="-1" role="dialog" id="savedChanges">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Saved</h4>
-      </div>
-      <div class="modal-body">
-        <p>
-        You've saved your profile changes {{userName}}!!
-        </p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-</div>
-
-
-
-
 
 </div>

@@ -1,5 +1,8 @@
-app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogleAPI",
-	function($q, $http, $scope, AuthFactory, SearchGoogleAPI) {
+app.controller("mainCtrl", function($q, $http, $scope, AuthFactory, SearchGoogleAPI) {
+
+		$scope.currentUser =  AuthFactory.getUser();
+
+		console.log($scope.currentUser);
 
 		$scope.usersZipCode;
 		$scope.selectedTypes;
@@ -7,11 +10,6 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 		$scope.radius;
 		$scope.checkedActivities = [];
 		$('#zeroResults').hide();
-
-
-    $('#profileLink').removeClass('ng-hide');
-    $('#mainPageLink').removeClass('ng-hide');
-    $('#logoutLink').removeClass('ng-hide');
 
     if ($scope.currentUser !== null) {
       $('.modal-trigger').leanModal();
@@ -72,16 +70,40 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
 			};
 
 			$scope.saveInterests = function () {
+
+			// 	function writeNewPost(uid, username, picture, title, body) {
+			//   // A post entry.
+			//   var postData = {
+			//     author: username,
+			//     uid: uid,
+			//     body: body,
+			//     title: title,
+			//     starCount: 0,
+			//     authorPic: picture
+			//   };
+			//
+			//   // Get a key for a new Post.
+			  // var newPostKey = firebase.database().ref().child('posts').push().key;
+			//
+			//   // Write the new post's data simultaneously in the posts list and the user's post list.
+			//   var updates = {};
+			//   updates['/posts/' + newPostKey] = postData;
+			//   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+			//
+			//   return firebase.database().ref().update(updates);
+			// }
+
+
 				console.log('HELLO PEOPLE WHAT IS HAPPENING')
 				$("#savedModal").modal();
-
-				// var currentUserId = getSet.getUid();
 				$scope.thisUsersInterests = $scope.checked.placeName;
-				console.log("thisUsersInterests", $scope.thisUsersInterests[i]);
-				// userInterestsRef.child("/"+currentUserId).set({
-				// 	"myInterests": thisUsersInterests
-				// });
-				// console.log("THIS HAS BEEN SAVED!", currentUserId);
+				var uid = $scope.currentUser;
+				var userInterestsRef = firebase.database().ref('userInterests')
+				console.log("thisUsersInterests", $scope.thisUsersInterests);
+				userInterestsRef.child("/"+uid).set({
+					myInterests: $scope.thisUsersInterests
+				});
+				console.log("THIS HAS BEEN SAVED!");
 			};
 	}
 
@@ -93,4 +115,4 @@ app.controller("mainCtrl", ["$q", "$http", "$scope", "AuthFactory", "SearchGoogl
   //
 
 
-	}]);
+	});

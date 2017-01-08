@@ -26,6 +26,9 @@ h3 {
 label {
   color: purple; }
 
+.savedInterests {
+  color: purple; }
+
 #zeroResults {
   text-align: center;
   color: #DF013A;

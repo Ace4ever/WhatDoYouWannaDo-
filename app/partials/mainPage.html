@@ -49,17 +49,10 @@
     </form>
   </div>
 
-    <!-- <label ng-repeat="interest in interests | filter: filterInterests" class="interestsList">
-        <div type="checkbox" checklist-model="user.roles" checklist-value="interest" id="list"> {{interest}}
-    </label> -->
-
-
-
 	<div id="theseButtons">
-  <button type="button" class="btn btn-info" ng-click="showResult()">Result</button>
-	<button type="button" class="btn btn-info" ng-click="saveInterests()">Save</button>
+    <button type="button" class="btn btn-info" ng-click="showResult()">Result</button>
+  	<button type="button" class="btn btn-info" ng-click="saveInterests()">Save</button>
   </div>
-  <!-- </div> -->
 
 <!-- Result Modal -->
   <div class="modal fade" tabindex="-1" role="dialog" id="resultModal">
@@ -95,9 +88,10 @@
         <div class="modal-body">
           <p>
             You've saved:
-            <div ng-repeat="thing in thisUsersInterests track by $index" class="divInlineSaved">
-              {{index}}- {{thing}}
+            <div ng-repeat="thing in thisUsersInterests track by $index" class="savedInterests">
+              {{$index}}- {{thing}}
             </div>
+
             <div>
               to your account!!
             </div>

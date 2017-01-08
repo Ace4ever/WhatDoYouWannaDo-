@@ -41,4 +41,9 @@ app.controller("loginRegisterCtrl", function($scope, $window, AuthFactory) {
       console.log("error loggin in", error);
     });
   };
+
+  $scope.logoutUser = () => {
+    console.log("HI HI HI");
+    AuthFactory.logout();
+  }
 });
