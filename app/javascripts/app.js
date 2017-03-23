@@ -27,10 +27,6 @@ app.config(($routeProvider) => {
 				templateUrl: './partials/mainPage.html',
 				controller: 'mainCtrl'
 			})
-			.when("/search", {
-				templateUrl: './partials/search.html',
-				controller: 'searchCtrl'
-			})
 			.when('/profile', {
 				templateUrl: './partials/profile.html',
 				controller: 'profileCtrl'

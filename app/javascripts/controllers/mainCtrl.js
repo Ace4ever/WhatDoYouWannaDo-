@@ -70,30 +70,6 @@ app.controller("mainCtrl", function($q, $http, $scope, AuthFactory, SearchGoogle
 			};
 
 			$scope.saveInterests = function () {
-
-			// 	function writeNewPost(uid, username, picture, title, body) {
-			//   // A post entry.
-			//   var postData = {
-			//     author: username,
-			//     uid: uid,
-			//     body: body,
-			//     title: title,
-			//     starCount: 0,
-			//     authorPic: picture
-			//   };
-			//
-			//   // Get a key for a new Post.
-			  // var newPostKey = firebase.database().ref().child('posts').push().key;
-			//
-			//   // Write the new post's data simultaneously in the posts list and the user's post list.
-			//   var updates = {};
-			//   updates['/posts/' + newPostKey] = postData;
-			//   updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-			//
-			//   return firebase.database().ref().update(updates);
-			// }
-
-
 				console.log('HELLO PEOPLE WHAT IS HAPPENING')
 				$("#savedModal").modal();
 				$scope.thisUsersInterests = $scope.checked.placeName;
@@ -106,13 +82,6 @@ app.controller("mainCtrl", function($q, $http, $scope, AuthFactory, SearchGoogle
 				console.log("THIS HAS BEEN SAVED!");
 			};
 	}
-
-	// 	// function that randomly generates result from usere's selected interests and displays result modal
-  //
-
-  //
-	// 	// function that saves user's interests in FB and notifies them of what they've saved in modal
-  //
 
 
 	});

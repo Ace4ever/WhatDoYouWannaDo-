@@ -41,6 +41,7 @@
     <div id="zeroResults">
       There are zero search results, please expand your search
     </div>
+    <div>{{activity}}</div>
     <form action="#">
       <div ng-repeat="name in placeName track by $index" class="col s5 offset-s1">
         <input type="checkbox" checklist-model="checked.placeName" checklist-value="name" class="checkboxes" id="{{$index}}">
